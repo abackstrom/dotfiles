@@ -23,7 +23,7 @@ export EDITOR=vim
 
 # history
 export HISTCONTROL=erasedups:ignoreboth
-export HISTIGNORE="pwsafe *:ls"
+export HISTIGNORE="pwsafe *:ls:git push*"
 export HISTSIZE=10000
 shopt -s histappend cmdhist
 
