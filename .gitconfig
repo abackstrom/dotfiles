@@ -4,3 +4,6 @@
     s = status -s
     files = diff --name-only
     last = diff --name-only HEAD^!
+[user]
+	email = adam@sixohthree.com
+	name = Adam Backstrom
