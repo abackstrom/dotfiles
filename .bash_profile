@@ -1,11 +1,17 @@
 export PATH="$HOME/bin:$PATH"
 
-eval `keychain -q --eval id_rsa`
+which keychain &>/dev/null
+if [ $? -eq 0 ]; then
+    eval `keychain -q --eval id_rsa`
+fi
 
-[[ -f `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+which brew &>/dev/null
+if [ $? -eq 0 ]; then
+    [[ -f `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+fi
 
-. /usr/local/etc/bash_completion.d/git-completion.bash
-. /usr/local/etc/bash_completion.d/git-prompt.sh
+[[ -f /usr/local/etc/bash_completion.d/git-completion.bash ]] && . /usr/local/etc/bash_completion.d/git-completion.bash
+[[ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]] && . /usr/local/etc/bash_completion.d/git-prompt.sh
 
 if [ ! -z "$PS1" ]; then
     export PS1='\W$(__git_ps1 "(%s)")\$ '
@@ -28,7 +34,3 @@ export HISTSIZE=10000
 shopt -s histappend cmdhist
 
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
-
-if [ -f `brew --prefix`/etc/autojump ]; then
-    . `brew --prefix`/etc/autojump
-fi
