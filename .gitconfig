@@ -4,6 +4,9 @@
     s = status -s
     files = diff --name-only
     last = diff --name-only HEAD^!
+    l = log --oneline master..
 [user]
-	email = adam@sixohthree.com
-	name = Adam Backstrom
+    email = adam@sixohthree.com
+    name = Adam Backstrom
+[diff]
+    noprefix = true
