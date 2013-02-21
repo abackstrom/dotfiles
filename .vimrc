@@ -2,6 +2,10 @@
 
 set guifont=Inconsolata:h14
 
+" make j/k sane when wrapping is on
+nmap j gj
+nmap k gk
+
 nnoremap <silent> <C-n> :CtrlPBuffer<CR>
 nnoremap <silent> <C-m> :CtrlP<CR>
 
