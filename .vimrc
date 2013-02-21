@@ -1,5 +1,7 @@
 " this file is extremely incomplete.
 
+set guifont=Inconsolata:h14
+
 nnoremap <silent> <C-n> :CtrlPBuffer<CR>
 nnoremap <silent> <C-m> :CtrlP<CR>
 
