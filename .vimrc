@@ -43,13 +43,24 @@ set colorcolumn=120
 nmap j gj
 nmap k gk
 
-nnoremap <silent> <C-n> :CtrlPBuffer<CR>
-nnoremap <silent> <C-m> :CtrlP<CR>
+function SetupCtrlP()
+    nnoremap <silent> <C-n> :CtrlPBuffer<CR>
+    nnoremap <silent> <C-m> :CtrlP<CR>
 
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-let g:ctrlp_max_height = 30
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_max_files = 0
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_switch_buffer = 0
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+    let g:ctrlp_max_height = 30
+    let g:ctrlp_match_window_bottom = 0
+    let g:ctrlp_match_window_reversed = 0
+    let g:ctrlp_max_files = 100000
+    let g:ctrlp_show_hidden = 1
+    let g:ctrlp_switch_buffer = 0
+
+    " https://github.com/burke/matcher
+    let goodmatch_vim = $HOME . "/.vim/goodmatch.vim"
+    if filereadable(goodmatch_vim)
+        exe 'source' goodmatch_vim
+        let g:path_to_matcher = $HOME . "/bin/matcher"
+        let g:ctrlp_match_func = { 'match': 'GoodMatch' }
+    endif
+endfunction
+call SetupCtrlP()
