@@ -14,7 +14,8 @@ fi
 [[ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]] && . /usr/local/etc/bash_completion.d/git-prompt.sh
 
 if [ ! -z "$PS1" ]; then
-    export PS1='\W$(__git_ps1 "(%s)")\$ '
+    _jobcount() { test $1 -gt 0 && echo [$1] ; }
+    export PS1='\W$(__git_ps1 "(%s)")$(_jobcount \j)\$ '
 fi
 
 export LESS=-SFX
