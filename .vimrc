@@ -5,7 +5,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 
-let g:snips_author="Adam Backstrom"
+let g:snips_author="Annika Backstrom"
 
 set nocompatible
     \ backspace=2 softtabstop=0 tabstop=4 shiftwidth=4
